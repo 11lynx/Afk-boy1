@@ -1,7 +1,6 @@
 {
   "name": "minecraft-bot",
   "version": "1.0.0",
-  "description": "Aternos Minecraft Bot (Mineflayer)",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
