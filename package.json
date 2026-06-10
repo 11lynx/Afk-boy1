@@ -1,11 +1,12 @@
-{
-  "name": "minecraft-bot",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "mineflayer": "latest"
-  }
-}
+bot.on('kicked', (reason) => {
+  console.log('GEKICKT:', reason);
+});
+
+bot.on('error', (err) => {
+  console.log('FEHLER:', err);
+});
+
+bot.on('end', () => {
+  console.log('Disconnected (kein Join möglich)');
+  setTimeout(startBot, 5000);
+});
