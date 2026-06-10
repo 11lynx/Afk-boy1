@@ -1,6 +1,6 @@
 const mineflayer = require('mineflayer');
 
-function createBot() {
+function startBot() {
   const bot = mineflayer.createBot({
     host: 'Skibidi-7004.aternos.me',
     port: 18824,
@@ -10,21 +10,20 @@ function createBot() {
 
   bot.on('spawn', () => {
     console.log('Bot ist online!');
-    bot.chat('Ich bin da!');
-  });
-
-  bot.on('kicked', (reason) => {
-    console.log('GEKICKT:', reason);
   });
 
   bot.on('error', (err) => {
     console.log('FEHLER:', err);
   });
 
+  bot.on('kicked', (reason) => {
+    console.log('GEKICKT:', reason);
+  });
+
   bot.on('end', () => {
-    console.log('Verbindung verloren → Reconnect in 5s');
-    setTimeout(createBot, 5000);
+    console.log('Verbindung verloren → Neustart...');
+    setTimeout(startBot, 5000);
   });
 }
 
-createBot();
+startBot();
